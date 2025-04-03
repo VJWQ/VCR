@@ -155,3 +155,25 @@ body {
 #interpolation-image-wrapper img {
   border-radius: 5px;
 }
+
+.bg-section {
+  background-image: url('../../assets/bg.png');  /* 背景图地址 */
+  background-size: cover;                  /* 自动填满整个区域 */
+  background-position: center;             /* 居中对齐 */
+  background-repeat: no-repeat;            /* 不重复铺图 */
+  height: 400;                           /* 设置区域高度 */
+  width: 100%;                             /* 宽度可以自适应或自定 */
+}
+
+.title-wrapper {
+  background-color: rgba(255, 255, 255, 0.9);  /* 半透明白 */
+  backdrop-filter: blur(12px);                 /* 模糊背景图 */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);   /* 轻阴影 */
+  border-radius: 16px;                         /* 圆角 */
+  padding: 2rem 2.5rem;
+  display: inline-block;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+
