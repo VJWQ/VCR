@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="Deformable Neural Radiance Fields creates free-viewpoint portraits (nerfies) from casually captured videos.">
-  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+        content="VCR learns predictive visuomotor coordination from egocentric visual and kinematic observations.">
+  <meta name="keywords" content="VCR, visuomotor coordination, egocentric vision, motion forecasting">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nerfies: Deformable Neural Radiance Fields</title>
+  <title>VCR: Learning Predictive Visuomotor Coordination</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -59,6 +59,8 @@
             <span class="author-block">
               <a href="https://bolinlai.github.io/">Bolin Lai</a><sup>2</sup>,</span>
             <span class="author-block">
+              <a href="https://www.irohxucao.com/">Xu Cao</a><sup>1</sup>,</span>
+            <span class="author-block">
               <a href="https://aptx4869lm.github.io/">Miao Liu</a><sup>3</sup>,
             </span>
             <span class="author-block">
@@ -70,8 +72,8 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>University of Illinois Urbana-Champaign</span>
-            <span class="author-block"><sup>2</sup>Georgia Tech</span>
+            <span class="author-block" style="margin-right: 1rem;"><sup>1</sup>University of Illinois Urbana-Champaign</span>
+            <span class="author-block" style="margin-right: 1rem;"><sup>2</sup>Georgia Tech</span>
             <span class="author-block"><sup>3</sup>Meta AI</span>
           </div>
 
@@ -79,7 +81,7 @@
             <div class="publication-links">
               <!-- PDF Link. -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2503.23300"
+                <a href="https://openaccess.thecvf.com/content/CVPR2026F/html/Jia_Learning_Predictive_Visuomotor_Coordination_CVPRF_2026_paper.html"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -88,12 +90,12 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2503.23300"
+                <a href="https://openaccess.thecvf.com/content/CVPR2026F/supplemental/Jia_Learning_Predictive_Visuomotor_CVPRF_2026_supplemental.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv</span>
+                  <span>Supp</span>
                 </a>
               </span>
               <!-- Video Link. -->
@@ -108,23 +110,15 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/VJWQ/VCR.git"
-                   class="external-link button is-normal is-rounded is-dark">
+                <span class="button is-normal is-rounded is-light publication-link-disabled"
+                      aria-disabled="true"
+                      title="Coming soon">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
-                  </a>
+                </span>
               </span>
-              <!-- Dataset Link. -->
-              <span class="link-block">
-                <a href="https://ego-exo4d-data.org/"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="far fa-images"></i>
-                  </span>
-                  <span>Data</span>
-                  </a>
             </div>
           </div>
           </div>
@@ -137,73 +131,14 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
-        free-viewpoint
-        portraits.
+      <img src="./static/images/vcr_teaser.png"
+           alt="VCR teaser figure showing predictive visuomotor coordination."
+           class="teaser-figure">
+      <h2 class="subtitle has-text-left">
+        We represent the human visuomotor system as a joint encoding of head pose, 3D gaze endpoints,
+        and upper-body joints. Given past visuomotor observations and egocentric frames, our goal is
+        to predict how the system coordinates its future movements.
       </h2>
-    </div>
-  </div>
-</section>
-
-
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -238,183 +173,236 @@
       </div>
     </div>
     <!--/ Abstract. -->
+  </div>
+</section>
 
-    <!-- Paper video. -->
+
+<section class="section method-section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Method</h2>
+
+        <div class="method-subsection">
+          <h3 class="title is-4">Visuomotor Coordination Representation</h3>
+          <div class="columns is-vcentered method-row">
+            <div class="column is-half">
+              <img src="./static/images/vcr.png"
+                   alt="Figure 2: Visuomotor Coordination Representation."
+                   class="method-figure">
+            </div>
+            <div class="column is-half">
+              <div class="content">
+                <p>
+                  At each timestep, the visuomotor state is defined as
+                  S<sub>t</sub> = {H<sub>t</sub>, G<sub>t</sub>, U<sub>t</sub>}, where
+                  H<sub>t</sub> is head pose, G<sub>t</sub> is the 3D gaze endpoint, and
+                  U<sub>t</sub> denotes upper-body joint positions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="method-subsection">
+          <h3 class="title is-4">Visuomotor State Canonicalization</h3>
+          <div class="columns is-vcentered method-row">
+            <div class="column is-half">
+              <img src="./static/images/canon.png"
+                   alt="Figure 3: Canonicalization pipeline."
+                   class="method-figure">
+            </div>
+            <div class="column is-half">
+              <div class="content">
+                <p>
+                  Visuomotor states are aligned to the reference frame of the last observed head pose,
+                  allowing the model to learn relative motion patterns independent of global movement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="method-subsection">
+          <h3 class="title is-4">Model Architecture</h3>
+          <div class="columns is-vcentered method-row">
+            <div class="column is-half">
+              <img src="./static/images/arch.png"
+                   alt="Figure 4: Multimodal diffusion model architecture."
+                   class="method-figure">
+            </div>
+            <div class="column is-half">
+              <div class="content">
+                <p>
+                  Kinematic features and egocentric visual embeddings are fused through structured
+                  head-gaze and head-gaze-arm pathways, then processed by a temporal encoder and
+                  diffusion denoiser to forecast future visuomotor states.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section qualitative-section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <h2 class="title is-3">Qualitative Results</h2>
+        <div class="content has-text-justified">
+          <p>
+            Predicted visuomotor coordination across diverse real-world activities from EgoExo4D.
+            Each demo visualizes the coupled evolution of head pose, 3D gaze endpoints, and
+            upper-body motion. 
+          </p>
+        </div>
+
+        <h3 class="title is-4 has-text-left demo-category-title">Bike Fixing</h3>
+        <div class="demo-carousel">
+          <button class="demo-nav prev" type="button" aria-label="Previous bike fixing demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+          <div class="demo-slides">
+            <article class="demo-slide is-active">
+              <video class="demo-video" muted loop playsinline preload="metadata">
+                <source src="./static/videos/demos/bike-fixing-01.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">A precise turn with head and gaze fixed on the bike tire.</p>
+            </article>
+            <article class="demo-slide">
+              <video class="demo-video" muted loop playsinline preload="none">
+                <source data-src="./static/videos/demos/bike-fixing-02.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Both hands are raised at the end of forecasting, as in the ground-truth egocentric observation.</p>
+            </article>
+            <article class="demo-slide">
+              <video class="demo-video" muted loop playsinline preload="none">
+                <source data-src="./static/videos/demos/bike-fixing-03.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Despite drastic movement, gaze leads the direction.</p>
+            </article>
+          </div>
+          <button class="demo-nav next" type="button" aria-label="Next bike fixing demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </button>
+          <div class="demo-dots" aria-label="Bike fixing demo navigation"></div>
+        </div>
+
+        <h3 class="title is-4 has-text-left demo-category-title">Cooking</h3>
+        <div class="demo-carousel">
+          <button class="demo-nav prev" type="button" aria-label="Previous cooking demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+          <div class="demo-slides">
+            <article class="demo-slide is-active">
+              <video class="demo-video" muted loop playsinline preload="metadata">
+                <source src="./static/videos/demos/cooking-01.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Head and gaze shift along the upper-body movement.</p>
+            </article>
+            <article class="demo-slide">
+              <video class="demo-video" muted loop playsinline preload="none">
+                <source data-src="./static/videos/demos/cooking-02.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Naturally adjusting visuomotor coordination in response to an unusual pose.</p>
+            </article>
+            <article class="demo-slide">
+              <video class="demo-video" muted loop playsinline preload="none">
+                <source data-src="./static/videos/demos/cooking-03.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Correctly turns left at the end of forecasting.</p>
+            </article>
+            <article class="demo-slide">
+              <video class="demo-video" muted loop playsinline preload="none">
+                <source data-src="./static/videos/demos/cooking-04.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Heading to the left and raising the left arm.</p>
+            </article>
+          </div>
+          <button class="demo-nav next" type="button" aria-label="Next cooking demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </button>
+          <div class="demo-dots" aria-label="Cooking demo navigation"></div>
+        </div>
+
+        <h3 class="title is-4 has-text-left demo-category-title">Basketball</h3>
+        <div class="demo-carousel">
+          <button class="demo-nav prev" type="button" aria-label="Previous basketball demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+          <div class="demo-slides">
+            <article class="demo-slide is-active">
+              <video class="demo-video" muted loop playsinline preload="metadata">
+                <source src="./static/videos/demos/basketball-01.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">The player is prepared to catch the ball at the end of forecasting.</p>
+            </article>
+            <article class="demo-slide">
+              <video class="demo-video" muted loop playsinline preload="none">
+                <source data-src="./static/videos/demos/basketball-02.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Head and gaze cue the mid-range jump shooting.</p>
+            </article>
+            <article class="demo-slide">
+              <video class="demo-video" muted loop playsinline preload="none">
+                <source data-src="./static/videos/demos/basketball-03.mp4" type="video/mp4">
+              </video>
+              <p class="demo-caption">Catches the dropping ball and continues with a Mikan layup.</p>
+            </article>
+          </div>
+          <button class="demo-nav next" type="button" aria-label="Next basketball demo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </button>
+          <div class="demo-dots" aria-label="Basketball demo navigation"></div>
+        </div>
+
+        <h3 class="title is-4 has-text-left demo-category-title">COVID Test</h3>
+        <div class="demo-single">
+          <video class="demo-video" muted loop playsinline preload="none">
+            <source data-src="./static/videos/demos/covid-test-01.mp4" type="video/mp4">
+          </video>
+          <p class="demo-caption">Attention shifts and returns during the health-related task.</p>
         </div>
       </div>
     </div>
-    <!--/ Paper video. -->
   </div>
 </section>
 
 
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Visual Effects</h2>
-          <p>
-            Using <i>nerfies</i> you can create fun visual effects. This Dolly zoom effect
-            would be impossible without nerfies since it would require going through a wall.
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/dollyzoom-stacked.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Matting</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
-            </p>
-            <video id="matting-video" controls playsinline height="100%">
-              <source src="./static/videos/matting.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Matting. -->
-
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/>
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <!--/ Re-rendering. -->
-
-      </div>
-    </div>
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
-
-
-<section class="section" id="BibTeX">
+<section class="section bottom-bg-section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <pre><code>
+      @inproceedings{jia2026learning,
+      title={Learning predictive visuomotor coordination},
+      author={Jia, Wenqi and Lai, Bolin and Cao, Xu and Liu, Miao and Xu, Danfei and Rehg, James M},
+      booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+      pages={3609--3619},
+      year={2026}
+    }
+  </code></pre>
   </div>
 </section>
 
 
-<footer class="footer">
+<footer class="footer bottom-bg-section bottom-bg-footer">
   <div class="container">
-    <div class="content has-text-centered">
-      <a class="icon-link"
-         href="./static/videos/nerfies_paper.pdf">
-        <i class="fas fa-file-pdf"></i>
-      </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
@@ -423,18 +411,164 @@
                                                 href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
             Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
-          <p>
-            This means you are free to borrow the <a
-              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
-            we just ask that you link back to this page in the footer.
-            Please remember to remove the analytics code included in the header of the website which
-            you do not want on your website.
-          </p>
         </div>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    function loadDemoVideo(video) {
+      if (!video || video.dataset.loaded === 'true') {
+        return;
+      }
+      const source = video.querySelector('source');
+      if (source && source.dataset.src && !source.getAttribute('src')) {
+        source.src = source.dataset.src;
+        video.load();
+      }
+      video.dataset.loaded = 'true';
+    }
+
+    function playActiveDemoVideo(root, restart) {
+      const shouldPlay = root.dataset.inView === 'true';
+      root.querySelectorAll('.demo-slide').forEach(function (slide) {
+        const video = slide.querySelector('.demo-video');
+        if (!video) {
+          return;
+        }
+        if (slide.classList.contains('is-active')) {
+          loadDemoVideo(video);
+          if (shouldPlay) {
+            if (restart) {
+              video.currentTime = 0;
+            }
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+              playPromise.catch(function () {});
+            }
+          }
+        } else {
+          video.pause();
+        }
+      });
+    }
+
+    function setBlockPlayback(block, play) {
+      block.dataset.inView = play ? 'true' : 'false';
+      if (!play) {
+        block.querySelectorAll('.demo-video').forEach(function (video) {
+          video.pause();
+        });
+        return;
+      }
+      if (block.classList.contains('demo-carousel')) {
+        playActiveDemoVideo(block, false);
+        return;
+      }
+      const video = block.querySelector('.demo-video');
+      loadDemoVideo(video);
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {});
+      }
+    }
+
+    function initDemoCarousel(root) {
+      const slides = Array.from(root.querySelectorAll('.demo-slide'));
+      const slidesWrap = root.querySelector('.demo-slides');
+      const prevBtn = root.querySelector('.demo-nav.prev');
+      const nextBtn = root.querySelector('.demo-nav.next');
+      const dotsWrap = root.querySelector('.demo-dots');
+
+      if (!slides.length || !slidesWrap || !prevBtn || !nextBtn || !dotsWrap) {
+        return;
+      }
+
+      let currentIdx = 0;
+      let startX = null;
+
+      function renderSlide(restart) {
+        slides.forEach(function (slide, idx) {
+          slide.classList.toggle('is-active', idx === currentIdx);
+        });
+        Array.from(dotsWrap.querySelectorAll('.demo-dot')).forEach(function (dot, idx) {
+          dot.classList.toggle('is-active', idx === currentIdx);
+        });
+        playActiveDemoVideo(root, restart);
+      }
+
+      dotsWrap.innerHTML = '';
+      slides.forEach(function (_, idx) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'demo-dot';
+        dot.setAttribute('aria-label', 'Go to demo ' + (idx + 1));
+        dot.addEventListener('click', function () {
+          currentIdx = idx;
+          renderSlide(true);
+        });
+        dotsWrap.appendChild(dot);
+      });
+
+      prevBtn.addEventListener('click', function () {
+        currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+        renderSlide(true);
+      });
+
+      nextBtn.addEventListener('click', function () {
+        currentIdx = (currentIdx + 1) % slides.length;
+        renderSlide(true);
+      });
+
+      slidesWrap.addEventListener('touchstart', function (event) {
+        if (event.touches.length !== 1) {
+          startX = null;
+          return;
+        }
+        startX = event.touches[0].clientX;
+      }, { passive: true });
+
+      slidesWrap.addEventListener('touchend', function (event) {
+        if (startX === null || !event.changedTouches.length) {
+          return;
+        }
+        const deltaX = event.changedTouches[0].clientX - startX;
+        startX = null;
+        if (Math.abs(deltaX) < 40) {
+          return;
+        }
+        currentIdx = deltaX < 0
+          ? (currentIdx + 1) % slides.length
+          : (currentIdx - 1 + slides.length) % slides.length;
+        renderSlide(true);
+      });
+
+      renderSlide(false);
+    }
+
+    document.querySelectorAll('.demo-carousel').forEach(initDemoCarousel);
+
+    const demoBlocks = document.querySelectorAll('.demo-carousel, .demo-single');
+    if ('IntersectionObserver' in window) {
+      const visibilityObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          setBlockPlayback(entry.target, entry.isIntersecting);
+        });
+      }, { threshold: 0.35 });
+
+      demoBlocks.forEach(function (block) {
+        block.dataset.inView = 'false';
+        visibilityObserver.observe(block);
+      });
+    } else {
+      demoBlocks.forEach(function (block) {
+        setBlockPlayback(block, true);
+      });
+    }
+  });
+</script>
 
 </body>
 </html>

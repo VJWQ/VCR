@@ -13,14 +13,26 @@ body {
     margin-bottom: 5px;
 }
 
-.dnerf {
-  font-variant: small-caps;
+.publication-link-disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    color: #7a7a7a !important;
+    border-color: transparent;
 }
-
 
 .teaser .hero-body {
   padding-top: 0;
   padding-bottom: 3rem;
+}
+
+.teaser video,
+.teaser img,
+.teaser-figure {
+  display: block;
+  width: 80%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .teaser {
@@ -49,6 +61,7 @@ body {
 
 .publication-title {
     font-family: 'Google Sans', sans-serif;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 .publication-authors {
@@ -157,23 +170,181 @@ body {
 }
 
 .bg-section {
-  background-image: url('../../assets/bg.png');  /* 背景图地址 */
-  background-size: cover;                  /* 自动填满整个区域 */
-  background-position: center;             /* 居中对齐 */
-  background-repeat: no-repeat;            /* 不重复铺图 */
-  height: 400;                           /* 设置区域高度 */
-  width: 100%;                             /* 宽度可以自适应或自定 */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.52), rgba(255, 255, 255, 0.4)),
+    url('../../assets/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  width: 100%;
+}
+
+.bottom-bg-section {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.66)),
+    url('../../assets/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bottom-bg-footer {
+  background-color: transparent;
 }
 
 .title-wrapper {
-  background-color: rgba(255, 255, 255, 0.9);  /* 半透明白 */
-  backdrop-filter: blur(12px);                 /* 模糊背景图 */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);   /* 轻阴影 */
-  border-radius: 16px;                         /* 圆角 */
+  background-color: transparent;
+  backdrop-filter: none;
+  box-shadow: none;
+  border-radius: 0;
   padding: 2rem 2.5rem;
   display: inline-block;
   max-width: 960px;
   margin: 0 auto;
+}
+
+.qualitative-section .demo-category-title {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.demo-carousel {
+  position: relative;
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 1.5rem 3.25rem 2.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.demo-slides {
+  width: 100%;
+}
+
+.demo-slide {
+  display: none;
+}
+
+.demo-slide.is-active {
+  display: block;
+}
+
+.demo-slide .demo-video,
+.demo-single .demo-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #000;
+}
+
+.demo-caption {
+  margin: 1rem 0 0;
+  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.demo-single {
+  border: 1px solid #ececec;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.demo-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  color: #404144;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 14px rgba(10, 76, 172, 0.25);
+}
+
+.demo-nav.prev {
+  left: -18px;
+}
+
+.demo-nav.next {
+  right: -18px;
+}
+
+.demo-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 0.85rem;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  gap: 0.35rem;
+}
+
+.demo-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: none;
+  background: #d8dfeb;
+  cursor: pointer;
+  padding: 0;
+}
+
+.demo-dot.is-active {
+  background: #404144;
+}
+
+@media (max-width: 768px) {
+  .demo-carousel {
+    padding: 1.25rem 2.5rem 2.5rem;
+  }
+
+  .demo-nav.prev {
+    left: 8px;
+  }
+
+  .demo-nav.next {
+    right: 8px;
+  }
+}
+
+.method-subsection {
+  margin-top: 2rem;
+}
+
+.method-subsection .title.is-4 {
+  margin-bottom: 1rem;
+}
+
+.method-row {
+  margin-top: 0;
+}
+
+.method-figure {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.method-subsection .content {
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .method-row .column.is-half {
+    width: 100%;
+  }
 }
 
 
